@@ -42,6 +42,11 @@ func (p Point[S]) AlignCenter(r Rect[S]) Rect[S] {
 	return p.Align(r, 0.5, 0.5)
 }
 
+// Within in an alias for s.Anchor(rx, ry).Align(r, rx, ry).
+func (r Rect[S]) Within(s Rect[S], rx, ry float64) Rect[S] {
+	return s.Anchor(rx, ry).Align(r, rx, ry)
+}
+
 // CutX cuts r into two rectangles at x = r.Min.X + w.
 // It returns the left part (got) and the right part (rest).
 // If w is negative, got is empty and rest is r.

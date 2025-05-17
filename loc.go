@@ -47,6 +47,14 @@ func (p Point[S]) Div(k S) Point[S] {
 	return Point[S]{X: p.X / k, Y: p.Y / k}
 }
 
+func (p Point[S]) MulPoint(q Point[S]) Point[S] {
+	return Point[S]{X: p.X * q.X, Y: p.Y * q.Y}
+}
+
+func (p Point[S]) DivPoint(q Point[S]) Point[S] {
+	return Point[S]{X: p.X / q.X, Y: p.Y / q.Y}
+}
+
 // In reports whether p is in r.
 func (p Point[S]) In(r Rect[S]) bool {
 	return r.Min.X <= p.X && p.X < r.Max.X &&
